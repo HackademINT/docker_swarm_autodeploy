@@ -9,7 +9,7 @@ if [ "$(qm list | grep $VM_ID | wc -l)" -eq 0 ]; then
 		--description 'Docker $i VM created by bonnetn' \
 		--pool dockerswarm 
 	qm set $VM_ID --net0 model=virtio,bridge=vmbr1337
-	qm set $VM_ID --ipconfig0 ip=${VM_IP}/24,gw=10.33.0.1
+	qm set $VM_ID --ipconfig0 ip=${VM_IP}/16,gw=10.33.0.1
 	qm set $VM_ID --nameserver '157.159.10.12'
 	qm set $VM_ID --ciuser deploy
 	qm set $VM_ID --sshkey ~/.ssh/id_rsa.pub
@@ -34,7 +34,7 @@ for i in {2..5}; do
 			--description 'Docker $i VM created by bonnetn' \
 			--pool dockerswarm 
 		qm set $VM_ID --net0 model=virtio,bridge=vmbr1337
-		qm set $VM_ID --ipconfig0 ip=${VM_IP}/24,gw=10.33.0.1
+		qm set $VM_ID --ipconfig0 ip=${VM_IP}/16,gw=10.33.0.1
 		qm set $VM_ID --nameserver '157.159.10.12'
 		qm set $VM_ID --ciuser deploy
 		qm set $VM_ID --sshkey ~/.ssh/id_rsa.pub
