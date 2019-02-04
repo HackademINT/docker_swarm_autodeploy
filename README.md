@@ -7,7 +7,7 @@ In other words you can take your docker-compose.yml and "transform" it into a pe
 
 ## TLDR
 ```sh
-ssh deploy@10.20.20.11
+ssh deploy@10.33.0.11
 
 # Get information about services...
 sudo docker stack ls
@@ -62,7 +62,7 @@ Then you will build your service.
 
 SSH on docker1:
 ```sh
-ssh deploy@10.20.20.11
+ssh deploy@10.33.0.11
 
 # Transfer your project on the VM... (you can use git, wget, scp...)
 git clone https://my_awesome_service
