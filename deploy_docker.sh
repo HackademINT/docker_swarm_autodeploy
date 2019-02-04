@@ -14,6 +14,7 @@ if [ "$(qm list | grep $VM_ID | wc -l)" -eq 0 ]; then
 	qm set $VM_ID --ciuser deploy
 	qm set $VM_ID --sshkey ~/.ssh/id_rsa.pub
 	qm set $VM_ID --agent 1
+	qm set $VM_ID --autostart 1
 	qm start $VM_ID
 fi
 
@@ -38,6 +39,7 @@ for i in {2..5}; do
 		qm set $VM_ID --ciuser deploy
 		qm set $VM_ID --sshkey ~/.ssh/id_rsa.pub
 		qm set $VM_ID --agent 1
+                qm set $VM_ID --autostart 1
 		qm start $VM_ID
 	fi
 done
