@@ -6,7 +6,7 @@ VM_IP="10.33.0.1$i"
 if [ "$(qm list | grep $VM_ID | wc -l)" -eq 0 ]; then
 	qm clone 9000 $VM_ID \
 		--name "docker$i" \
-		--description 'Docker $i VM created by bonnetn' \
+		--description "Docker $i VM created by bonnetn" \
 		--pool dockerswarm 
 	qm set $VM_ID --net0 model=virtio,bridge=vmbr1337
 	qm set $VM_ID --ipconfig0 ip=${VM_IP}/16,gw=10.33.0.1
@@ -31,7 +31,7 @@ for i in {2..5}; do
 	if [ "$(qm list | grep $VM_ID | wc -l)" -eq 0 ]; then
 		qm clone 9000 $VM_ID \
 			--name "docker$i" \
-			--description 'Docker $i VM created by bonnetn' \
+			--description "Docker $i VM created by bonnetn" \
 			--pool dockerswarm 
 		qm set $VM_ID --net0 model=virtio,bridge=vmbr1337
 		qm set $VM_ID --ipconfig0 ip=${VM_IP}/16,gw=10.33.0.1
