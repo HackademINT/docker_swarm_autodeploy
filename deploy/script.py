@@ -51,3 +51,10 @@ sudo docker service create --name registry --publish published=5000,target=5000 
 curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o /tmp/portainer-agent-stack.yml
 sudo docker stack deploy --compose-file=/tmp/portainer-agent-stack.yml portainer
 """
+TEMPLATE_SCRIPT = """
+# import the downloaded disk to local-lvm storage
+qm importdisk 9000 bionic-server-cloudimg-amd64.img local-lvm
+
+# finally attach the new disk to the VM as scsi drive
+qm set 9000 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9000-disk-1
+"""
